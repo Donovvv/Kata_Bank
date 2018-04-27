@@ -1,4 +1,8 @@
-language: java
-after_success:
+language: groovy
+
+sudo: false
+
+script:
+  - gradle cucumber
   - bash <(curl -s https://codecov.io/bash)
 
