@@ -1,5 +1,6 @@
 package com.plgrnds.tests.bank;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -7,10 +8,12 @@ public class Account {
 
     private final UUID id;
     private final Customer owner;
+    private BigDecimal balance;
 
     public Account(Customer owner) {
         id = UUID.randomUUID();
         this.owner = owner;
+        this.balance = balance;
     }
 
     public Customer getOwner() {
@@ -30,5 +33,8 @@ public class Account {
 
         return Objects.hash(id);
     }
+
+
+
 
 }
