@@ -13,5 +13,8 @@ public class Bank {
 	public Set<Account> getCustomerAccounts(Customer customer) {
 		return accountRepository.getAccountsForCustomer(customer);
 	}
-
+	public void transfer(Account firstAccount, Account secoundAccount, double transferAmount) {
+		firstAccount.setBalance(); = firstAccount.getBalance(); - transferAmount;
+		secoundAccount.setBalance(); = secoundAccount.getBalance(); + transferAmount;
+	}
 }
