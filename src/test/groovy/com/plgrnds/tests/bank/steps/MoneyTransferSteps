@@ -1,0 +1,50 @@
+ackage com.plgrnds.tests.bank.steps
+
+import com.plgrnds.tests.bank.Account
+import com.plgrnds.tests.bank.AccountRepository
+import com.plgrnds.tests.bank.Bank
+import com.plgrnds.tests.bank.Customer
+import com.plgrnds.tests.bank.InMemoryAccountRepository
+import groovy.transform.Field
+
+import static org.assertj.core.api.Assertions.assertThat
+
+
+this.metaClass.mixin(cucumber.api.groovy.EN)
+
+@Field AccountRepository accountRepository
+@Field Customer customer
+@Field Bank bank
+
+@Field Aaccount
+@Field Baccount
+
+
+Given(~/^there is a bank$/) { ->
+    accountRepository = new InMemoryAccountRepository()
+    bank = new Bank(accountRepository)
+}
+
+Given(~/^balance on account A is 100$/) { ->
+    customer = new Customer()
+    Aaccount = new Account(customer)
+    Aaccount.setBalance(100.0);
+
+}
+
+And~/^balance ond account B is 1000$/) { ->
+    customer = new Customer()
+    Baccount = new Account(customer)
+    Baccount.setBalance(1000.0);
+}
+
+When(~/^99.91 is transfered from account A to account B$/) { ->
+    Bank.transfer(Aaccount,Baccount,99.91)
+}
+
+Then(~/^the balance on this account A is 0.09$/) { ->
+    assertThat(Aaccount.getBalance).isEqualTo(0.09)
+    And(~/^the balance on this account B is 1099.91$/) { ->
+        assertThat(Baccount.getBalance).isEqualTo(1099.91)
+    }
+
