@@ -33,7 +33,12 @@ public class Account {
 
         return Objects.hash(id);
     }
-
+ public double getBalance() {
+        return balance;
+    }
+    public void setBalance(double balance){
+        this.balance = balance;
+    }
 
 
 
