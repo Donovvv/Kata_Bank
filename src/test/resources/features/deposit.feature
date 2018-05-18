@@ -1,4 +1,4 @@
-Feature: Bank Management - Deposit
+Feature: deposit
 
   Background:
     Given there is a bank with account and customer
