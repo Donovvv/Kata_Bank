@@ -38,5 +38,5 @@ Then(~/^there is a new account on his account list$/) { ->
 }
 
 And(~/^the balance on this account is 0$/) { ->
-    newAccount.balance = 0
+    assertThat(newAccount.getBalance).isEqualTo(0)
 }
