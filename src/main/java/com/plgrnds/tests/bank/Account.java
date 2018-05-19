@@ -70,6 +70,12 @@ public void withdraw(BigDecimal amount) throws IllegalArgumentException {
         this.withdraw(bigDecimal);
         targetAccount.deposit(bigDecimal);
     }
+       public void CashIn(double amount){
+        this.balance = setBalance(getBalance()+ amount);
+    }
+    public void CashOut(double amount){
+        this.balance = setBalance(getBalance()- amount);
+    }
 
 
 }
